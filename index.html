@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tuyến Error - Bio Links & Experience</title>
+    <title>Tuyến Error • Receptionist & Photographer</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter & Outfit -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -16,13 +16,6 @@
                 extend: {
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
-                    colors: {
-                        raglai: {
-                            50: '#f0fdf4',
-                            500: '#22c55e',
-                            600: '#16a34a',
-                        }
                     }
                 }
             }
@@ -81,7 +74,7 @@
 
     <div class="w-full max-w-md my-auto relative">
         
-        <!-- Decorative Ambient Background Elements -->
+        <!-- Ambient Background Elements -->
         <div class="absolute -top-10 -left-10 w-40 h-40 bg-purple-500 rounded-full blur-3xl opacity-30 pointer-events-none"></div>
         <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-pink-500 rounded-full blur-3xl opacity-20 pointer-events-none"></div>
 
@@ -92,10 +85,10 @@
                 
                 <!-- Avatar -->
                 <div class="avatar-glow mb-4">
-                    <img src="https://pin.it/5CKdQ6Mhu" 
+                    <img src="https://drive.google.com/uc?export=view&id=1ABBPXR_IXiiP0Zxzk6nIhLo0pwj4AM-T" 
                          alt="Tuyến Error" 
                          class="w-28 h-28 rounded-full object-cover border-2 border-white/20 shadow-xl"
-                         onerror="this.src='https://pin.it/5CKdQ6Mhu?w=300&auto=format&fit=crop&q=80'">
+                         onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80'">
                 </div>
 
                 <!-- Name & Verification Badge -->
@@ -117,6 +110,7 @@
                     2 năm kinh nghiệm Lễ tân Resort & KDL cao cấp. Đam mê nhiếp ảnh, sáng tạo nội dung & lưu giữ bản sắc văn hóa Raglai.
                 </p>
 
+                <!-- Social Icons -->
                 <div class="flex items-center justify-center gap-3 w-full mb-6 pb-6 border-b border-white/10">
                     <!-- Facebook -->
                     <a href="https://www.facebook.com/TuyenError.Photography.Receptionist" target="_blank" rel="noopener noreferrer" title="Facebook"
@@ -186,6 +180,7 @@
                     </div>
                 </a>
 
+                <!-- Experience Section -->
                 <div class="pt-2">
                     <p class="text-xs font-semibold tracking-wider text-slate-400 uppercase mb-2 pl-1 flex items-center justify-between">
                         <span>Kinh nghiệm Lễ Tân (2 năm)</span>
@@ -201,7 +196,7 @@
                             </div>
                             <div class="text-left">
                                 <h3 class="text-xs font-semibold text-white">Golden Peak Resort Cam Ranh</h3>
-                                <p class="text-[11px] text-slate-400">Nhân viên Lễ Tân • Khánh Hòa</p>
+                                <p class="text-[11px] text-slate-400">Nhân viên Lễ Tân • Cam Ranh</p>
                             </div>
                         </div>
 
@@ -228,13 +223,13 @@
                         </div>
 
                         <!-- Item 4 -->
-                        <div class="flex items-start gap-3 pb-2.5 border-b border-white/5">
+                        <div class="flex items-start gap-3">
                             <div class="w-7 h-7 rounded-lg bg-amber-500/20 flex items-center justify-center text-amber-400 text-xs shrink-0 mt-0.5">
                                 <i class="fa-solid fa-tree"></i>
                             </div>
                             <div class="text-left">
                                 <h3 class="text-xs font-semibold text-white">KDL Rừng Thông Núi Voi</h3>
-                                <p class="text-[11px] text-slate-400">Nhân viên Đón tiếp & Chăm sóc khách hàng</p>
+                                <p class="text-[11px] text-slate-400">Nhân viên Đón tiếp & CSKH</p>
                             </div>
                         </div>
 
@@ -249,7 +244,7 @@
                         <span>Gọi Điện / Zalo</span>
                     </button>
 
-                    <button onclick="shareProfile(https://tuyenerror.github.io/photography/)" class="glass-item p-3 rounded-xl flex items-center justify-center gap-2 text-xs font-medium text-slate-200 hover:text-white group">
+                    <button onclick="shareProfile()" class="glass-item p-3 rounded-xl flex items-center justify-center gap-2 text-xs font-medium text-slate-200 hover:text-white group">
                         <i class="fa-solid fa-share-nodes text-blue-400 group-hover:scale-110 transition-transform"></i>
                         <span>Chia Sẻ Trang</span>
                     </button>
@@ -257,7 +252,7 @@
 
             </div>
 
-            <!-- Footer Notification Toast -->
+            <!-- Toast -->
             <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900/90 text-white text-xs px-4 py-2.5 rounded-full shadow-2xl backdrop-blur-md border border-white/10 opacity-0 pointer-events-none transition-all duration-300 z-50 flex items-center gap-2">
                 <i class="fa-solid fa-circle-check text-emerald-400"></i>
                 <span id="toast-msg">Đã sao chép vào bộ nhớ tạm!</span>
@@ -272,13 +267,22 @@
 
     <script>
         function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast("Đã sao chép SĐT: " + text);
+                }).catch(() => fallbackCopy(text));
+            } else {
+                fallbackCopy(text);
+            }
+        }
+
+        function fallbackCopy(text) {
             const tempInput = document.createElement("input");
             tempInput.value = text;
             document.body.appendChild(tempInput);
             tempInput.select();
             document.execCommand("copy");
             document.body.removeChild(tempInput);
-            
             showToast("Đã sao chép SĐT: " + text);
         }
 
@@ -289,12 +293,7 @@
                     url: window.location.href
                 }).catch(() => {});
             } else {
-                const tempInput = document.createElement("input");
-                tempInput.value = window.location.href;
-                document.body.appendChild(tempInput);
-                tempInput.select();
-                document.execCommand("copy");
-                document.body.removeChild(tempInput);
+                copyToClipboard(window.location.href);
                 showToast("Đã sao chép liên kết trang!");
             }
         }
@@ -303,7 +302,6 @@
             const toast = document.getElementById('toast');
             const toastMsg = document.getElementById('toast-msg');
             toastMsg.textContent = message;
-            
             toast.classList.remove('opacity-0', 'pointer-events-none');
             toast.classList.add('opacity-100');
 

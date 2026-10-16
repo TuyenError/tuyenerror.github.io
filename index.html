@@ -91,7 +91,7 @@
             
             <div class="flex flex-col items-center text-center">
                 
-                <!-- Avatar gọi trực tiếp file avatar.jpg từ dự án -->
+                <!-- Avatar -->
                 <div class="avatar-glow mb-4">
                     <img src="avatar.jpg" 
                          alt="Tuyến Error" 
@@ -108,38 +108,81 @@
                 <!-- Primary Role & Location -->
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-medium text-purple-200 mb-3 border border-white/10">
                     <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span>
-                    <span>Lễ Tân / Hotel Receptionist</span>
+                    <span>Lễ Tân /  Hotel Receptionist</span>
                     <span class="text-white/40">•</span>
                     <span class="text-slate-300"><i class="fa-solid fa-location-dot text-rose-400 mr-1"></i>Khánh Hòa</span>
                 </div>
 
                 <!-- Tagline/Bio -->
                 <p class="text-xs text-slate-300 max-w-xs leading-relaxed mb-6">
-                    2 năm kinh nghiệm Lễ tân Resort & KDL. Đam mê nhiếp ảnh, sáng tạo nội dung & lưu giữ bản sắc văn hóa Raglai.
+                    2 năm kinh nghiệm Lễ tân Resort & KDL . Đam mê nhiếp ảnh, sáng tạo nội dung & lưu giữ bản sắc văn hóa Raglai.
                 </p>
 
-                <!-- Social Icons -->
-                <div class="flex items-center justify-center gap-3 w-full mb-6 pb-6 border-b border-white/10">
-                    <!-- Facebook -->
-                    <a href="https://www.facebook.com/TuyenError.Photography.Receptionist" target="_blank" rel="noopener noreferrer" title="Facebook"
-                       class="w-11 h-11 rounded-2xl glass-item flex items-center justify-center text-blue-400 hover:text-white hover:bg-blue-600 shadow-lg text-lg">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <!-- Instagram -->
-                    <a href="https://www.instagram.com/tuyen_error/" target="_blank" rel="noopener noreferrer" title="Instagram"
-                       class="w-11 h-11 rounded-2xl glass-item flex items-center justify-center text-pink-400 hover:text-white hover:bg-gradient-to-tr hover:from-amber-500 hover:via-rose-500 hover:to-purple-600 shadow-lg text-lg">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <!-- TikTok -->
-                    <a href="https://www.tiktok.com/@lavi.noma" target="_blank" rel="noopener noreferrer" title="TikTok"
-                       class="w-11 h-11 rounded-2xl glass-item flex items-center justify-center text-cyan-400 hover:text-white hover:bg-black shadow-lg text-lg">
-                        <i class="fa-brands fa-tiktok"></i>
-                    </a>
-                    <!-- YouTube -->
-                    <a href="https://www.youtube.com/@TuyenError16" target="_blank" rel="noopener noreferrer" title="YouTube"
-                       class="w-11 h-11 rounded-2xl glass-item flex items-center justify-center text-red-500 hover:text-white hover:bg-red-600 shadow-lg text-lg">
-                        <i class="fa-brands fa-youtube"></i>
-                    </a>
+                <!-- Social Icons Grid -->
+                <div class="w-full mb-6 pb-6 border-b border-white/10">
+                    <div class="grid grid-cols-5 gap-2.5 justify-items-center">
+                        
+                        <!-- 1. Facebook -->
+                        <a href="https://www.facebook.com/TuyenError.Photography.Receptionist" target="_blank" rel="noopener noreferrer" title="Facebook"
+                           class="w-10 h-10 rounded-xl glass-item flex items-center justify-center text-blue-400 hover:text-white hover:bg-blue-600 shadow-lg text-base">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <!-- 2. Instagram -->
+                        <a href="https://www.instagram.com/tuyen_error/" target="_blank" rel="noopener noreferrer" title="Instagram"
+                           class="w-10 h-10 rounded-xl glass-item flex items-center justify-center text-pink-400 hover:text-white hover:bg-gradient-to-tr hover:from-amber-500 hover:via-rose-500 hover:to-purple-600 shadow-lg text-base">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <!-- 3. TikTok -->
+                        <a href="https://www.tiktok.com/@lavi.noma" target="_blank" rel="noopener noreferrer" title="TikTok"
+                           class="w-10 h-10 rounded-xl glass-item flex items-center justify-center text-cyan-400 hover:text-white hover:bg-black shadow-lg text-base">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                        
+                        <!-- 4. Locket -->
+                        <a href="locket.cam/tuyen_error_1605" target="_blank" rel="noopener noreferrer" title="Locket"
+                           class="w-10 h-10 rounded-xl glass-item flex items-center justify-center text-amber-400 hover:text-white hover:bg-amber-500 shadow-lg text-base">
+                            <i class="fa-solid fa-heart"></i>
+                        </a>
+
+                        <!-- 5. Threads -->
+                        <a href="https://www.threads.net/@tuyen_error" target="_blank" rel="noopener noreferrer" title="Threads"
+                           class="w-10 h-10 rounded-xl glass-item flex items-center justify-center text-slate-200 hover:text-white hover:bg-black shadow-lg text-base">
+                            <i class="fa-brands fa-threads"></i>
+                        </a>
+
+                        <!-- 6. YouTube -->
+                        <a href="https://www.youtube.com/@TuyenError16" target="_blank" rel="noopener noreferrer" title="YouTube"
+                           class="w-10 h-10 rounded-xl glass-item flex items-center justify-center text-red-500 hover:text-white hover:bg-red-600 shadow-lg text-base">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+
+                        <!-- 7. WhatsApp (Bấm mở QR) -->
+                        <button onclick="openQRModal('WhatsApp', '0964984046', 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://wa.me/84964984046')" title="WhatsApp QR Code"
+                           class="w-10 h-10 rounded-xl glass-item flex items-center justify-center text-emerald-400 hover:text-white hover:bg-emerald-600 shadow-lg text-base">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </button>
+
+                        <!-- 8. LINE (Bấm mở QR) -->
+                        <button onclick="openQRModal('LINE', 'tuyenerror', 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://line.me/ti/p/~tuyenerror')" title="LINE QR Code"
+                           class="w-10 h-10 rounded-xl glass-item flex items-center justify-center text-green-400 hover:text-white hover:bg-green-500 shadow-lg text-base">
+                            <i class="fa-brands fa-line"></i>
+                        </button>
+
+                        <!-- 9. WeChat (Bấm mở QR) -->
+                        <button onclick="openQRModal('WeChat', 'TuyenError', 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=TuyenError')" title="WeChat QR Code"
+                           class="w-10 h-10 rounded-xl glass-item flex items-center justify-center text-emerald-300 hover:text-white hover:bg-emerald-500 shadow-lg text-base">
+                            <i class="fa-brands fa-weixin"></i>
+                        </button>
+
+                        <!-- 10. KakaoTalk (Bấm mở QR) -->
+                        <button onclick="openQRModal('KakaoTalk', 'TuyenError', 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=TuyenError')" title="KakaoTalk QR Code"
+                           class="w-10 h-10 rounded-xl glass-item flex items-center justify-center text-amber-300 hover:text-slate-900 hover:bg-amber-400 shadow-lg text-base">
+                            <i class="fa-solid fa-comment"></i>
+                        </button>
+
+                    </div>
                 </div>
 
             </div>
@@ -226,7 +269,7 @@
                             </div>
                             <div class="text-left">
                                 <h3 class="text-xs font-semibold text-white">Resort Vĩnh Hy</h3>
-                                <p class="text-[11px] text-slate-400">Nhân viên Lễ Tân • Vịnh Vĩnh Hy • Khánh Hòa</p>
+                                <p class="text-[11px] text-slate-400">Nhân viên Lễ Tân • Vịnh Vĩnh Hy • Khánh Hòa </p>
                             </div>
                         </div>
 
@@ -237,7 +280,7 @@
                             </div>
                             <div class="text-left">
                                 <h3 class="text-xs font-semibold text-white">KDL Rừng Thông Núi Voi</h3>
-                                <p class="text-[11px] text-slate-400">Nhân viên Đón tiếp & CSKH</p>
+                                <p class="text-[11px] text-slate-400">Nhân viên Đón tiếp & CSKH • Lâm Đồng</p>
                             </div>
                         </div>
 
@@ -247,7 +290,7 @@
                 <p class="text-xs font-semibold tracking-wider text-slate-400 uppercase pt-2 mb-2 pl-1">Liên hệ</p>
 
                 <div class="grid grid-cols-2 gap-3">
-                    <button onclick="copyToClipboard('0964984046')" class="glass-item p-3 rounded-xl flex items-center justify-center gap-2 text-xs font-medium text-slate-200 hover:text-white group">
+                    <button onclick="copyToClipboard('0964984046', 'SĐT')" class="glass-item p-3 rounded-xl flex items-center justify-center gap-2 text-xs font-medium text-slate-200 hover:text-white group">
                         <i class="fa-solid fa-phone text-purple-400 group-hover:scale-110 transition-transform"></i>
                         <span>Gọi Điện / Zalo</span>
                     </button>
@@ -273,25 +316,91 @@
         </div>
     </div>
 
+    <!-- POPUP MODAL MÃ QR -->
+    <div id="qr-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="glass-card bg-slate-900/90 border border-white/20 rounded-3xl p-6 max-w-xs w-full text-center relative shadow-2xl transform scale-95 transition-transform duration-300" id="qr-modal-card">
+            
+            <!-- Nút đóng Popup -->
+            <button onclick="closeQRModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 id="modal-title" class="text-lg font-bold text-white mb-1">Mã QR Kết Bạn</h3>
+            <p id="modal-subtitle" class="text-xs text-slate-400 mb-4">Quét mã bằng camera hoặc ứng dụng</p>
+
+            <!-- Khung chứa ảnh mã QR -->
+            <div class="bg-white p-3 rounded-2xl inline-block shadow-inner mb-4">
+                <img id="modal-qr-img" src="" alt="Mã QR" class="w-48 h-48 rounded-lg object-contain">
+            </div>
+
+            <!-- Nút Sao Chép ID nhanh trong Modal -->
+            <button id="modal-copy-btn" onclick="" class="w-full py-2.5 px-4 rounded-xl bg-purple-600/80 hover:bg-purple-600 text-white text-xs font-semibold flex items-center justify-center gap-2 transition-all">
+                <i class="fa-regular fa-copy"></i>
+                <span id="modal-copy-text">Sao chép ID</span>
+            </button>
+        </div>
+    </div>
+
     <script>
-        function copyToClipboard(text) {
+        function openQRModal(appName, idValue, qrImageUrl) {
+            const modal = document.getElementById('qr-modal');
+            const modalCard = document.getElementById('qr-modal-card');
+            const title = document.getElementById('modal-title');
+            const subtitle = document.getElementById('modal-subtitle');
+            const qrImg = document.getElementById('modal-qr-img');
+            const copyBtn = document.getElementById('modal-copy-btn');
+            const copyText = document.getElementById('modal-copy-text');
+
+            title.textContent = `Mã QR ${appName}`;
+            subtitle.textContent = `ID: ${idValue}`;
+            qrImg.src = qrImageUrl;
+
+            copyBtn.onclick = function() {
+                copyToClipboard(idValue, `${appName} ID`);
+            };
+            copyText.textContent = `Sao chép ID: ${idValue}`;
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.add('opacity-100');
+            modalCard.classList.remove('scale-95');
+            modalCard.classList.add('scale-100');
+        }
+
+        function closeQRModal() {
+            const modal = document.getElementById('qr-modal');
+            const modalCard = document.getElementById('qr-modal-card');
+
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modalCard.classList.remove('scale-100');
+            modalCard.classList.add('scale-95');
+        }
+
+        // Đóng modal khi click ra ngoài vùng card
+        document.getElementById('qr-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeQRModal();
+            }
+        });
+
+        function copyToClipboard(text, label = "thông tin") {
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(text).then(() => {
-                    showToast("Đã sao chép SĐT: " + text);
-                }).catch(() => fallbackCopy(text));
+                    showToast("Đã sao chép " + label + ": " + text);
+                }).catch(() => fallbackCopy(text, label));
             } else {
-                fallbackCopy(text);
+                fallbackCopy(text, label);
             }
         }
 
-        function fallbackCopy(text) {
+        function fallbackCopy(text, label) {
             const tempInput = document.createElement("input");
             tempInput.value = text;
             document.body.appendChild(tempInput);
             tempInput.select();
             document.execCommand("copy");
             document.body.removeChild(tempInput);
-            showToast("Đã sao chép SĐT: " + text);
+            showToast("Đã sao chép " + label + ": " + text);
         }
 
         function shareProfile() {
@@ -301,8 +410,7 @@
                     url: window.location.href
                 }).catch(() => {});
             } else {
-                copyToClipboard(window.location.href);
-                showToast("Đã sao chép liên kết trang!");
+                copyToClipboard(window.location.href, "liên kết trang");
             }
         }
 

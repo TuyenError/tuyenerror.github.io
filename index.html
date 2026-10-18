@@ -201,14 +201,13 @@
                             <i class="fa-brands fa-weixin"></i>
                         </button>
 
-                        <!-- 10. KakaoTalk (Logo chuẩn bong bóng nâu chữ TALK vàng) -->
+                        <!-- 10. KakaoTalk (Biểu tượng KakaoTalk chuẩn: Khung vàng, bong bóng nâu & chữ TALK vàng) -->
                         <button onclick="openQRModal('KakaoTalk', 'TuyenError', 'qr-kakaotalk.jpg')" title="KakaoTalk QR Code"
-                           class="w-10 h-10 rounded-xl glass-item flex items-center justify-center hover:bg-amber-400 shadow-lg group transition-all">
-                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Bong bóng hội thoại màu nâu Kakao -->
-                                <path d="M12 3C6.477 3 2 6.582 2 11c0 2.873 1.88 5.397 4.7 6.8-.2.74-.75 2.73-.86 3.16-.14.54.2.53.42.39.17-.11 2.73-1.85 3.83-2.6.61.09 1.23.14 1.85.14 5.523 0 10-3.582 10-8S17.523 3 12 3z" fill="#3C1E1E"/>
-                                <!-- Chữ TALK màu vàng đặc trưng -->
-                                <text x="12" y="12.8" font-family="Arial, sans-serif" font-weight="900" font-size="5.2" fill="#FEE500" text-anchor="middle" letter-spacing="-0.3">TALK</text>
+                           class="w-10 h-10 rounded-xl glass-item flex items-center justify-center hover:scale-105 transition-transform shadow-lg overflow-hidden">
+                            <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="100" height="100" rx="22" fill="#FEE500"/>
+                                <path d="M50 18C28.46 18 11 32.55 11 50.5C11 62.06 18.6 72.18 30.12 77.81L26.15 92.42C25.68 94.15 27.65 95.53 29.13 94.52L46.42 82.88C47.6 82.96 48.79 83 50 83C71.54 83 89 68.45 89 50.5C89 32.55 71.54 18 50 18Z" fill="#3C1E1E"/>
+                                <text x="50" y="58" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="21" fill="#FEE500" text-anchor="middle" letter-spacing="-0.5">TALK</text>
                             </svg>
                         </button>
 
@@ -399,7 +398,6 @@
             }
         }
 
-        // Phát nhạc ngay lập tức khi người dùng click/chạm bất kỳ đâu trên màn hình lần đầu tiên
         function handleFirstInteraction() {
             if (!isPlaying) {
                 startPlay();

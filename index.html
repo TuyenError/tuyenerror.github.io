@@ -78,9 +78,34 @@
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.5; transform: scale(0.85); }
         }
+
+        /* Hiệu ứng đĩa nhạc xoay */
+        .spin-slow {
+            animation: spin 6s linear infinite;
+        }
+        .spin-paused {
+            animation-play-state: paused;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body class="text-slate-100 flex items-center justify-center p-4 sm:p-6 antialiased selection:bg-purple-500 selection:text-white">
+
+    <!-- FILE ÂM THANH (Bạn tải file nhạc .mp3 lên thư mục dự án trên GitHub và đổi tên thành 'music.mp3') -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- NÚT PHÁT NHẠC NỀN DẠNG ĐĨA XOAY (Cố định góc dưới phải) -->
+    <button id="music-btn" onclick="toggleMusic()" class="fixed bottom-6 right-6 z-40 glass-card p-3 rounded-full shadow-2xl flex items-center gap-2 border border-white/20 hover:scale-105 transition-all">
+        <div id="music-disc" class="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center text-white text-xs shadow-md spin-slow spin-paused">
+            <i class="fa-solid fa-music"></i>
+        </div>
+        <span id="music-status" class="text-[11px] font-medium text-slate-200 pr-1">Bật Nhạc</span>
+    </button>
 
     <div class="w-full max-w-md my-auto relative">
         
@@ -161,25 +186,25 @@
                         </a>
 
                         <!-- 7. WhatsApp (Bấm mở QR) -->
-                        <button onclick="openQRModal('WhatsApp', '0964984046', 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://wa.me/84964984046')" title="WhatsApp QR Code"
+                        <button onclick="openQRModal('WhatsApp', '0964984046', 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://wa.me/84964984046')" title="WhatsApp QR Code"
                            class="w-10 h-10 rounded-xl glass-item flex items-center justify-center text-emerald-400 hover:text-white hover:bg-emerald-600 shadow-lg text-base">
                             <i class="fa-brands fa-whatsapp"></i>
                         </button>
 
                         <!-- 8. LINE (Bấm mở QR) -->
-                        <button onclick="openQRModal('LINE', 'tuyenerror', 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://line.me/ti/p/~tuyenerror')" title="LINE QR Code"
+                        <button onclick="openQRModal('LINE', 'tuyenerror', 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://line.me/ti/p/~tuyenerror')" title="LINE QR Code"
                            class="w-10 h-10 rounded-xl glass-item flex items-center justify-center text-green-400 hover:text-white hover:bg-green-500 shadow-lg text-base">
                             <i class="fa-brands fa-line"></i>
                         </button>
 
-                        <!-- 9. WeChat (Bấm mở QR) -->
-                        <button onclick="openQRModal('WeChat', 'TuyenError', 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=TuyenError')" title="WeChat QR Code"
+                        <!-- 9. WeChat (Mã QR WeChat chuẩn) -->
+                        <button onclick="openQRModal('WeChat', 'TuyenError', 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://u.wechat.com/kP4UfO5S5Q3w8t7c-2xM1_I')" title="WeChat QR Code"
                            class="w-10 h-10 rounded-xl glass-item flex items-center justify-center text-emerald-300 hover:text-white hover:bg-emerald-500 shadow-lg text-base">
                             <i class="fa-brands fa-weixin"></i>
                         </button>
 
-                        <!-- 10. KakaoTalk (Bấm mở QR) -->
-                        <button onclick="openQRModal('KakaoTalk', 'TuyenError', 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=TuyenError')" title="KakaoTalk QR Code"
+                        <!-- 10. KakaoTalk (Mã QR KakaoTalk chuẩn) -->
+                        <button onclick="openQRModal('KakaoTalk', 'TuyenError', 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://qr.kakaotalk.com/p/TuyenError')" title="KakaoTalk QR Code"
                            class="w-10 h-10 rounded-xl glass-item flex items-center justify-center text-amber-300 hover:text-slate-900 hover:bg-amber-400 shadow-lg text-base">
                             <i class="fa-solid fa-comment"></i>
                         </button>
@@ -344,6 +369,41 @@
     </div>
 
     <script>
+        // XỬ LÝ PHÁT NHẠC NỀN & XOAY ĐĨA
+        const audio = document.getElementById('bg-music');
+        const musicDisc = document.getElementById('music-disc');
+        const musicStatus = document.getElementById('music-status');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                musicDisc.classList.add('spin-paused');
+                musicStatus.textContent = 'Bật Nhạc';
+                isPlaying = false;
+            } else {
+                audio.play().then(() => {
+                    musicDisc.classList.remove('spin-paused');
+                    musicStatus.textContent = 'Đang Phát';
+                    isPlaying = true;
+                }).catch(() => {
+                    showToast('Vui lòng tương tác để phát nhạc');
+                });
+            }
+        }
+
+        // Tự động phát khi người dùng chạm/click lần đầu tiên vào trang
+        document.addEventListener('click', function autoPlayOnce() {
+            if (!isPlaying) {
+                audio.play().then(() => {
+                    musicDisc.classList.remove('spin-paused');
+                    musicStatus.textContent = 'Đang Phát';
+                    isPlaying = true;
+                }).catch(() => {});
+            }
+            document.removeEventListener('click', autoPlayOnce);
+        }, { once: true });
+
         function openQRModal(appName, idValue, qrImageUrl) {
             const modal = document.getElementById('qr-modal');
             const modalCard = document.getElementById('qr-modal-card');
@@ -378,7 +438,6 @@
             modalCard.classList.add('scale-95');
         }
 
-        // Đóng modal khi click ra ngoài vùng card
         document.getElementById('qr-modal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeQRModal();

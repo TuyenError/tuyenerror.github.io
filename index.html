@@ -15,8 +15,6 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Font Awesome phiên bản mới 6.5.1 hỗ trợ đầy đủ icon Threads -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -94,12 +92,12 @@
 </head>
 <body class="text-slate-100 flex items-center justify-center p-4 sm:p-6 antialiased selection:bg-purple-500 selection:text-white">
 
-    <!-- FILE ÂM THANH (Bạn tải file nhạc .mp3 lên thư mục dự án trên GitHub và đổi tên thành 'music.mp3') -->
+    <!-- FILE ÂM THANH NỀN -->
     <audio id="bg-music" loop preload="auto">
-        <source src="music.mp3" type="audio/mpeg">
+        <source src="./music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- NÚT PHÁT NHẠC NỀN DẠNG ĐĨA XOAY (Cố định góc dưới phải) -->
+    <!-- NÚT PHÁT NHẠC NỀN DẠNG ĐĨA XOAY -->
     <button id="music-btn" onclick="toggleMusic()" class="fixed bottom-6 right-6 z-40 glass-card p-3 rounded-full shadow-2xl flex items-center gap-2 border border-white/20 hover:scale-105 transition-all">
         <div id="music-disc" class="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center text-white text-xs shadow-md spin-slow spin-paused">
             <i class="fa-solid fa-music"></i>
@@ -167,7 +165,7 @@
                             <i class="fa-brands fa-tiktok"></i>
                         </a>
                         
-                        <!-- 4. Locket (Đã thêm https:// chuẩn đường dẫn web) -->
+                        <!-- 4. Locket -->
                         <a href="https://locket.cam/tuyen_error_1605" target="_blank" rel="noopener noreferrer" title="Locket"
                            class="w-10 h-10 rounded-xl glass-item flex items-center justify-center text-amber-400 hover:text-white hover:bg-amber-500 shadow-lg text-base">
                             <i class="fa-solid fa-heart"></i>
@@ -185,25 +183,25 @@
                             <i class="fa-brands fa-youtube"></i>
                         </a>
 
-                        <!-- 7. WhatsApp (Bấm mở QR) -->
+                        <!-- 7. WhatsApp -->
                         <button onclick="openQRModal('WhatsApp', '0964984046', 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://wa.me/84964984046')" title="WhatsApp QR Code"
                            class="w-10 h-10 rounded-xl glass-item flex items-center justify-center text-emerald-400 hover:text-white hover:bg-emerald-600 shadow-lg text-base">
                             <i class="fa-brands fa-whatsapp"></i>
                         </button>
 
-                        <!-- 8. LINE (Bấm mở QR) -->
+                        <!-- 8. LINE -->
                         <button onclick="openQRModal('LINE', 'tuyenerror', 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://line.me/ti/p/~tuyenerror')" title="LINE QR Code"
                            class="w-10 h-10 rounded-xl glass-item flex items-center justify-center text-green-400 hover:text-white hover:bg-green-500 shadow-lg text-base">
                             <i class="fa-brands fa-line"></i>
                         </button>
 
-                        <!-- 9. WeChat (Gọi trực tiếp file ảnh qr-wechat.jpg) -->
+                        <!-- 9. WeChat -->
                         <button onclick="openQRModal('WeChat', 'TuyenError', 'qr-wechat.jpg')" title="WeChat QR Code"
                            class="w-10 h-10 rounded-xl glass-item flex items-center justify-center text-emerald-300 hover:text-white hover:bg-emerald-500 shadow-lg text-base">
                             <i class="fa-brands fa-weixin"></i>
                         </button>
-                        
-                        <!-- 10. KakaoTalk (Gọi trực tiếp file ảnh qr-kakaotalk.jpg) -->
+
+                        <!-- 10. KakaoTalk -->
                         <button onclick="openQRModal('KakaoTalk', 'TuyenError', 'qr-kakaotalk.jpg')" title="KakaoTalk QR Code"
                            class="w-10 h-10 rounded-xl glass-item flex items-center justify-center text-amber-300 hover:text-slate-900 hover:bg-amber-400 shadow-lg text-base">
                             <i class="fa-solid fa-comment"></i>
@@ -375,6 +373,16 @@
         const musicStatus = document.getElementById('music-status');
         let isPlaying = false;
 
+        function startPlay() {
+            audio.play().then(() => {
+                musicDisc.classList.remove('spin-paused');
+                musicStatus.textContent = 'Đang Phát';
+                isPlaying = true;
+            }).catch(e => {
+                console.log("Autoplay blocked, waiting for interaction");
+            });
+        }
+
         function toggleMusic() {
             if (isPlaying) {
                 audio.pause();
@@ -382,27 +390,21 @@
                 musicStatus.textContent = 'Bật Nhạc';
                 isPlaying = false;
             } else {
-                audio.play().then(() => {
-                    musicDisc.classList.remove('spin-paused');
-                    musicStatus.textContent = 'Đang Phát';
-                    isPlaying = true;
-                }).catch(() => {
-                    showToast('Vui lòng tương tác để phát nhạc');
-                });
+                startPlay();
             }
         }
 
-        // Tự động phát khi người dùng chạm/click lần đầu tiên vào trang
-        document.addEventListener('click', function autoPlayOnce() {
+        // Phát nhạc ngay lập tức khi người dùng click/chạm bất kỳ đâu trên màn hình lần đầu tiên
+        function handleFirstInteraction() {
             if (!isPlaying) {
-                audio.play().then(() => {
-                    musicDisc.classList.remove('spin-paused');
-                    musicStatus.textContent = 'Đang Phát';
-                    isPlaying = true;
-                }).catch(() => {});
+                startPlay();
             }
-            document.removeEventListener('click', autoPlayOnce);
-        }, { once: true });
+            window.removeEventListener('click', handleFirstInteraction);
+            window.removeEventListener('touchstart', handleFirstInteraction);
+        }
+
+        window.addEventListener('click', handleFirstInteraction);
+        window.addEventListener('touchstart', handleFirstInteraction);
 
         function openQRModal(appName, idValue, qrImageUrl) {
             const modal = document.getElementById('qr-modal');
